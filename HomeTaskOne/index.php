@@ -34,6 +34,12 @@ calcNumbers('substract', 1, 3, 2);
 
 echo "<hr><br>";
 
+multiplyTable(3, 4);
+multiplyTable(9, 9);
+multiplyTable(16, 16);
+
+echo "<hr><br>";
+
 /**
  * FUNCTIONS
  */
@@ -54,11 +60,13 @@ function arrCalculator($arr = 0, $action = '') {
 
     switch ($action) {
         case 'sum':
+            $result = 0;
             for($i = 0, $length = count($arr); $i < $length; $i++) {
                 $result += $arr[$i];
             }
             break;
         case 'average':
+            $result = 0;
             for($i = 0, $length = count($arr); $i < $length; $i++) {
                 $result += $arr[$i];
             }
@@ -166,5 +174,25 @@ function calcNumbers($action = '') {
                 echo 'It seems that your action is empty :(';
                 break;
         }
+    }
+}
+
+function multiplyTable($a, $b) {
+    echo 'This function can make a multiply table ' . $a . ' * ' . $b . '<br>';
+
+    if(gettype($a) == 'integer' && gettype($b) == 'integer') {
+        echo '<table border="1" cellspacing="0" cellpadding="0">';
+        for($i = 1; $i <= $a; $i++ ) {
+            echo '<tr>';
+
+            for($j = 1; $j <= $b; $j++) {
+                echo '<td style="padding:5px" colspan="0">' . $j * $i . '</td>';
+            }
+
+            echo '</tr>';
+        }
+        echo '</table><br>';
+    } else {
+        echo 'Error, one of your number is not an integer!<br><br>';
     }
 }
