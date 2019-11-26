@@ -40,6 +40,31 @@ multiplyTable(16, 16);
 
 echo "<hr><br>";
 
+$sortArr = randArr(10000, 0, 10000);
+$timeStart = 0;
+$timeEnd = 0;
+// echo '<pre>';
+// print_r($sortArr);
+// echo '<pre>';
+echo "Buble Sort<br>";
+$timeStart = microtime(true);
+bubleSort($sortArr);
+$timeEnd = microtime(true);
+
+echo "Time start - " . $timeStart . '<br>';
+echo "Time end - " . $timeEnd . '<br><br>';
+echo "Time total - " . ($timeEnd - $timeStart) . '<br><br>';
+
+$timeStart = 0;
+$timeEnd = 0;
+echo "Quick Sort<br>";
+$timeStart = microtime(true);
+quickSort($sortArr);
+$timeEnd = microtime(true);
+echo "Time start - " . $timeStart . '<br>';
+echo "Time end - " . $timeEnd . '<br><br>';
+echo "Time total - " . ($timeEnd - $timeStart) . '<br><br>';
+
 /**
  * FUNCTIONS
  */
@@ -139,7 +164,7 @@ function bubleSort($arr) {
         }
     }
 
-    return $arr;
+    // return $arr;
 }
 
 function calcNumbers($action = '') {
@@ -195,4 +220,51 @@ function multiplyTable($a, $b) {
     } else {
         echo 'Error, one of your number is not an integer!<br><br>';
     }
+}
+
+function quickSort($array) {
+    $left = 0;
+    $right = count($array) - 1;
+
+    my_sort($array, $left, $right);
+}
+
+function my_sort(&$array, $left, $right) {
+    $l = $left;
+    $r = $right;
+
+    $center = $array[(int)($left + $right) / 2];
+
+    do {
+        while($array[$r] > $center) {
+            $r--;
+        }
+
+        while($array[$l] < $center) {
+            $l++;
+        }
+
+        if($l <= $r) {
+            list($array[$r], $array[$l]) = array($array[$l], $array[$r]);
+            $l++;
+            $r--;
+        }
+    } while ($l <= $r);
+
+    if($r > $left) {
+        my_sort($array, $left, $r);
+    }
+
+    if($l < $right) {
+        my_sort($array, $l, $right);
+    } 
+}
+
+function randArr( $N, $min = 0, $max = 100) {
+    return array_map(
+        function() use( $min, $max) {
+            return rand( $min, $max);
+        },
+        array_pad( [], $N, 0)
+    );
 }
