@@ -65,6 +65,22 @@ echo "Time start - " . $timeStart . '<br>';
 echo "Time end - " . $timeEnd . '<br><br>';
 echo "Time total - " . ($timeEnd - $timeStart) . '<br><br>';
 
+echo '<hr><br>';
+
+oddNumbers(0, 10);
+oddNumbers(60, 10);
+oddNumbers(-20, 9);
+
+echo '<hr><br>';
+
+$strOne  = 'ABBA';
+$strTwo  = 'MAMBA';
+$strThree = 'TENET';
+
+echo "String '$strOne' - palindrom - " . palindrom($strOne) . '<br>';
+echo "String '$strTwo' - palindrom - " . palindrom($strTwo) . '<br>';
+echo "String '$strThree' - palindrom - " . palindrom($strThree) . '<br>';
+
 /**
  * FUNCTIONS
  */
@@ -267,4 +283,32 @@ function randArr( $N, $min = 0, $max = 100) {
         },
         array_pad( [], $N, 0)
     );
+}
+
+function oddNumbers($start, $end) {
+    if($start > $end) {
+        echo "<br>That's all<br><br>";
+        return;
+    }
+
+    $s = $start;
+
+    if(($s % 2) == 0) {
+        $s++;
+        oddNumbers($s, $end);
+    } else {
+        echo $s . ', ';
+        $s++;
+        oddNumbers($s, $end);
+    }
+}
+
+function palindrom($string) {
+    $revesre = strrev($string);
+    
+    if($revesre == $string) {
+        return 1;
+    }
+
+    return 0;
 }
