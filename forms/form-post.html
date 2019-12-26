@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Work with forms</title>
+</head>
+<body>
+    <h1>Form</h1>
+    <form action="action-post.php" method="post">
+        <div>
+            <label for="name">Name</label><br>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="lastname">Last Name</label><br>
+            <input type="text" name="lastname" id="lastname">
+        </div>
+        <div>
+            <label for="patronomyc">Third Name</label><br>
+            <input type="text" name="patronomyc" id="patronomyc">
+        </div>
+
+        <div>
+            <p>Gender</p>
+            <div>
+                <input type="radio" id="male" name="gender" value="male" id="male" checked>
+                <label for="male">Male</label>
+            </div>
+            <div>
+                <input type="radio" id="female" name="gender" id="female" value="female">
+                <label for="male">Female</label>
+            </div>
+        </div>
+
+        <div>
+            <p>Your hobbies</p>
+            <ul>
+                <li><label for="programming">Programming</label><input type="checkbox" name="hobbies[]" value="programming" id="programming"></li>
+                <li><label for="football">Football</label><input type="checkbox" name="hobbies[]" value="football" id="football"></li>
+                <li><label for="reading">Reading</label><input type="checkbox" name="hobbies[]" value="reading" id="reading"></li>
+                <li><label for="cinema">Cinema</label><input type="checkbox" name="hobbies[]" value="cinema" id="cinema"></li>
+                <li><label for="dancing">Dancing</label><input type="checkbox" name="hobbies[]" value="dancing" id="dancing"></li>
+                <li><label for="other">Other</label><input type="checkbox" name="hobbies[]" value="other" id="other"></li>
+            </ul>
+        </div>
+        <br>
+
+        <div>
+            <input type="submit" value="Start search">
+        </div>
+    </form>
+</body>
+</html>
