@@ -104,7 +104,7 @@ function arrCalculator($arr = 0, $action = '') {
             $result = getArrMin($arr);
             break;
         case 'bubleSort':
-            $result = bubleSort($arr);
+            $result = bubleSort($arr, true);
             break;
         default:
             echo 'It seems that your action is empty :(';
@@ -150,7 +150,7 @@ function getArrMax($arr) {
     return $result;
 }
 
-function bubleSort($arr) {
+function bubleSort($arr, $return = false) {
     $length = count($arr);
     $tmp;
 
@@ -164,7 +164,9 @@ function bubleSort($arr) {
         }
     }
 
-    // return $arr;
+    if($return == true) {
+        return $arr;
+    }
 }
 
 function calcNumbers($action = '') {
