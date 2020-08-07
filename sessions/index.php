@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     if(!isset($_SESSION['counter'])) {
@@ -10,7 +9,7 @@
     echo "<br><a href=" . $_SERVER['PHP_SELF'] . ">Reload</a><br>";
 
     $name = "Yuri Sokyrko";
-    $age = 25;
+    $age = 26;
     $work = "web-developer";
 
     $_SESSION['user'] = array(
